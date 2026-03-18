@@ -9,24 +9,28 @@ import {
 
 import Users from "./users/pages/Users";
 import Places from "./places/pages/NewPlace";
+import MainNavigation from "./shared/components/Navigation/MainNavigation";
 
 function App() {
   return (
     <Router>
-      {/* <Switch> */}
-      <Routes>
-        <Route path="/" element={<Users />} exact />
-        {/* <Route path="/" exact>
+      <MainNavigation />
+      <main>
+        {/* <Switch> */}
+        <Routes>
+          <Route path="/" element={<Users />} exact />
+          {/* <Route path="/" exact>
           <Places />
         </Route> */}
-        <Route path="/users" element={<Users />} />
-        <Route path="/places/new" element={<Places />} />
-        <Route path="*" element={<Navigate to="/" />} />{" "}
-        {/* <Route path="*">
+          <Route path="/users" element={<Users />} />
+          <Route path="/places/new" element={<Places />} />
+          <Route path="*" element={<Navigate to="/" />} />{" "}
+          {/* <Route path="*">
           <redirect to="/" />
         </Route> */}
-      </Routes>
-      {/* </Switch> */}
+        </Routes>
+        {/* </Switch> */}
+      </main>
     </Router>
   );
 }
