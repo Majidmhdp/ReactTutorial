@@ -1,11 +1,7 @@
-import React from "react";
+import React from 'react';
 
-const Places = () => {
-  return (
-    <div>
-      <h1>Places Page</h1>
-    </div>
-  );
-}
+const NewPlace = () => {
+  return <h2>NewPlace Works!</h2>
+};
 
-export default Places;
+export default NewPlace;

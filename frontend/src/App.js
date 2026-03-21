@@ -7,7 +7,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import Users from "./users/pages/Users";
+import Users from "./user/pages/Users";
 import Places from "./places/pages/NewPlace";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 
