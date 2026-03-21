@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 
 import Users from "./user/pages/Users";
+import UserPlaces from "./places/pages/UserPlaces";
 import Places from "./places/pages/NewPlace";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 
@@ -23,6 +24,7 @@ function App() {
           <Places />
         </Route> */}
           <Route path="/users" element={<Users />} />
+          <Route path="/:userId/places" element={<UserPlaces />} />
           <Route path="/places/new" element={<Places />} />
           <Route path="*" element={<Navigate to="/" />} />{" "}
           {/* <Route path="*">
