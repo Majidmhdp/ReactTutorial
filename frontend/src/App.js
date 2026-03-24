@@ -10,6 +10,7 @@ import {
 import Users from "./user/pages/Users";
 import UserPlaces from "./places/pages/UserPlaces";
 import Places from "./places/pages/NewPlace";
+import UpdatePlace from "./places/pages/UpdatePlace";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/users" element={<Users />} />
           <Route path="/:userId/places" element={<UserPlaces />} />
           <Route path="/places/new" element={<Places />} />
+          <Route path="/places/:placeId" element={<UpdatePlace />} />
           <Route path="*" element={<Navigate to="/" />} />{" "}
           {/* <Route path="*">
           <redirect to="/" />
