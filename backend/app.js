@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 const placesRoutes = require('./routes/places-routes');
 const usersRoutes = require('./routes/users-routes');
+const HttpError = require('./models/http-error');
 
 const app = express();
 
@@ -16,6 +17,11 @@ app.use('/api/users', usersRoutes);
 app.use(bodyParser.json());
 // app.use(cors());
 // app.use(morgan('dev'));
+
+app.use((req, res, next) => {
+  const error = new HttpError('Could not find this route.', 404);
+  throw error;
+});
 
 app.use((error, req, res, next) => {
   if (res.headerSent) {
