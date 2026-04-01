@@ -1,4 +1,5 @@
 const express = require("express");
+require('dotenv').config();
 // const cors = require('cors');
 const bodyParser = require("body-parser");
 // const morgan = require('morgan');
@@ -33,13 +34,14 @@ app.use((error, req, res, next) => {
     .json({ message: error.message || "An unknown error occurred!" });
 });
 
+console.log("hi");
+console.log(process.env.PORT);
+
 mongoose
-  .connect(
-    `mongodb+srv://academind:ORlnOPLKvIH9M9hP@cluster0-ntrwp.mongodb.net/mern?retryWrites=true&w=majority`,
-  )
+  .connect(process.env.DB_HOST)
   .then(() => {
-    app.listen(5000, () => {
-      console.log("Server is running on port 5000");
+    app.listen(process.env.PORT || 5000, () => {
+      console.log(`Server is running on port ${process.env.PORT || 5000}`);
     });
   })
   .catch((err) => {
