@@ -12,6 +12,11 @@ const HttpError = require("./models/http-error");
 
 const app = express();
 
+// Middleware
+app.use(bodyParser.json());
+// app.use(cors());
+// app.use(morgan('dev'));
+
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
@@ -21,11 +26,6 @@ app.use((req, res, next) => {
 
 app.use("/api/places", placesRoutes);
 app.use("/api/users", usersRoutes);
-
-// Middleware
-app.use(bodyParser.json());
-// app.use(cors());
-// app.use(morgan('dev'));
 
 app.use((req, res, next) => {
   const error = new HttpError("Could not find this route.", 404);
@@ -40,9 +40,6 @@ app.use((error, req, res, next) => {
     .status(error.code || 500)
     .json({ message: error.message || "An unknown error occurred!" });
 });
-
-console.log("hi");
-console.log(process.env.PORT);
 
 mongoose
   .connect(process.env.DB_HOST)
