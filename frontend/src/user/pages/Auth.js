@@ -65,7 +65,7 @@ const Auth = () => {
 
     if (isLoginMode) {
       try {
-        const responseData = await sendRequest(
+        await sendRequest(
           "http://localhost:5000/api/users/login",
           "POST",
           JSON.stringify({
@@ -83,7 +83,7 @@ const Auth = () => {
       }
     } else {
       try {
-        const responseData = await sendRequest(
+        await sendRequest(
           "http://localhost:5000/api/users/signup",
           "POST",
           JSON.stringify({

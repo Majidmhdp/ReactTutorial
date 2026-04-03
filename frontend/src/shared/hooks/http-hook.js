@@ -19,7 +19,7 @@ export const useHttpClient = () => {
           headers,
           signal: httpAbortCtrl.signal
         });
-
+        
         const responseData = await response.json();
 
         activeHttpRequests.current = activeHttpRequests.current.filter(
@@ -29,10 +29,11 @@ export const useHttpClient = () => {
         if (!response.ok) {
           throw new Error(responseData.message);
         }
-
+        
         setIsLoading(false);
         return responseData;
       } catch (err) {
+        if (err.name === 'AbortError') return; // Ignore intentional abortion
         setError(err.message);
         setIsLoading(false);
         throw err;
