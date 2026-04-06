@@ -28,11 +28,12 @@ const signup = async (req, res, next) => {
     );
   }
   const { name, email, password } = req.body;
-
+  
   let existingUser;
   try {
     existingUser = await User.findOne({ email: email });
   } catch (err) {
+    console.log(err);
     const error = new HttpError(
       "Signing up failed, please try again later.",
       500,
@@ -63,7 +64,7 @@ const signup = async (req, res, next) => {
     name,
     email,
     image: "http://localhost:5000/" + (req.file ? req.file.path : null),
-    password,
+    password: hashedPassword,
     places: [],
   });
 
