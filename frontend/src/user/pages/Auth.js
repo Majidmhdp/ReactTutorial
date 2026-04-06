@@ -83,7 +83,7 @@ const Auth = () => {
           },
         );
 
-        auth.login(response.user.id);
+        auth.login(response.userId, response.token);
       } catch (err) {
         console.log(err);
       }
@@ -102,7 +102,7 @@ const Auth = () => {
           formData,
         );
 
-        auth.login(response.user.id);
+        auth.login(response.userId, response.token);
       } catch (err) {
         console.log(err);
       }
