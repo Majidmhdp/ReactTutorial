@@ -63,7 +63,7 @@ const signup = async (req, res, next) => {
   const createdUser = new User({
     name,
     email,
-    image: "http://localhost:5000/" + (req.file ? req.file.path : null),
+    image: process.env.REACT_APP_BACKEND_ASSETS_URL + (req.file ? req.file.path : null),
     password: hashedPassword,
     places: [],
   });

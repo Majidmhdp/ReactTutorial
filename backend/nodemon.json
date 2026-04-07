@@ -1,0 +1,8 @@
+{
+    "env": {
+        "PORT": 5000,
+        "DB_USER": "user",
+        "DB_PASSWORD": "Password",
+        "DB_HOST": "host"
+    }
+}
